@@ -8,23 +8,22 @@ interface BannerProps {
   subtitle: string;
   description: string;
   image: string;
-  href?: string;
   variant?: 'left' | 'right' | 'principal';
   button?: 'reverse' | 'default';
 
 }
 
-const Banner: React.FC<BannerProps> = ({ title, subtitle, description, button, image, variant, href }) => {
+const Banner: React.FC<BannerProps> = ({ title, subtitle, description, button, image, variant }) => {
    const bannerVariants = cva('', {
     variants: {
       direction: {
-        left: 'flex-row text-center lg:text-left',
-        right: 'flex-row-reverse text-center lg:text-right',
+        left: 'flex-row text-left',
+        right: 'flex-row-reverse text-right',
         principal: 'text-left', 
       },
       size: {
         principal: 'h-[690px] w-full',
-        default: 'max-h-[500px] h-full lg:w-[1200px] mx-10 rounded-xl',
+        default: 'max-h-[500px] w-[1200px] mx-10 rounded-xl',
       },
       align: {
         principal: 'justify-start',
@@ -32,7 +31,7 @@ const Banner: React.FC<BannerProps> = ({ title, subtitle, description, button, i
         left:'justify-start'
       },
       buttondirection:{
-         reverse: 'flex-row-reverse text-center lg:text-left items-center justify-center lg:justify-end lg:items-left',
+         reverse: 'flex-row-reverse text-left justify-end items-left',
          default: 'flex-row',
       }
     },
@@ -46,12 +45,12 @@ const Banner: React.FC<BannerProps> = ({ title, subtitle, description, button, i
 >
    {variant === 'principal' && <Menu />}
 
-  <div  className={`${bannerVariants({ direction: variant })} flex md:flex-col w-full items-center justify-center lg:p-20`}>
-      <div className='lg:w-1/2 w-full lg:max-w-[600px]'>
+  <div  className={`${bannerVariants({ direction: variant })} flex w-full items-center p-20`}>
+      <div className='w-1/2 max-w-[600px]'>
         <div className={`flex flex-col justify-center`}>
-          <p className="text-primary text-5xl font-extrabold lg:text-[60px]">{title}</p>
-          <p className="text-primary text-2xl  font-bold lg:text-[46px]">{subtitle}</p>
-          <p className="text-black text-xl">{description}</p>
+          <p className="text-primary font-extrabold text-[60px]">{title}</p>
+          <p className="text-primary font-bold text-[46px]">{subtitle}</p>
+          <p className="text-black">{description}</p>
           <div className={`${bannerVariants({ align: variant, buttondirection: button === 'reverse' ? 'reverse' : 'default' })} flex gap-4 my-4 items-center`}>
 
             <Button
@@ -68,10 +67,9 @@ const Banner: React.FC<BannerProps> = ({ title, subtitle, description, button, i
                   />
                 </svg>
               }
-              href="/category"
               variant="outline"
             />
-            <Button text="Explore now" variant="solid" href="/category"/>
+            <Button text="Explore now" variant="solid" />
           </div>
         </div>
          </div>
