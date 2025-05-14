@@ -7,16 +7,19 @@ interface PetKnowledgeProps {
   
   const PetKnowledge = ({  }: PetKnowledgeProps) => {
     return (
+      <div>
         <div className="flex justify-center my-20">
-            <div className="max-w-[1200px] w-full">
+            <div className="lg:max-w-[1200px] w-full">
         <div className="flex justify-between ">
-            <div>
+            <div className="w-full">
             <p>You already know ?</p>
             <p className="text-extrabold text-primary">Useful pet knowledge</p>
             </div>
-            <Button text="View all our sellers" variant="outline" icon={<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><path d='M8.33337 6.66666L11.6667 9.99999L8.33337 13.3333' stroke='#003459' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>} />
-        </div>
-        <div className="grid grid-cols-3 gap-4">
+              <div className="lg:block hidden w-full">
+                    <Button text="View More" icon={<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><path d='M8.33337 6.66666L11.6667 9.99999L8.33337 13.3333' stroke='#003459' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>} variant="outline" />
+              </div>
+             </div>
+        <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
             <div className="bg-white grid-rows grid gap-4 shadow-xl rounded-md w-full h-[98] px-2 py-4">
             <img src="/images/aboutpomerian.png"/>
             <div>
@@ -25,8 +28,6 @@ interface PetKnowledgeProps {
             <p>What is a Pomeranian? How to Identify Pomeranian Dogs</p>
             <p>The Pomeranian, also known as the Pomeranian (Pom dog), is always in the top of the cutest pets. Not only that, the small, lovely, smart, friendly, and skillful circus dog breed.</p>
             </div>
-
-          
 
             <div className="bg-white grid-rows grid gap-4 shadow-xl rounded-md w-full h-[98] px-2 py-4">
                 <img src="/images/aboutdiet.png"/>
@@ -47,7 +48,12 @@ interface PetKnowledgeProps {
             </div>
         </div>
         </div>
+      
         </div>
+             <div className="block lg:hidden">
+                    <Button text="View More" icon={<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><path d='M8.33337 6.66666L11.6667 9.99999L8.33337 13.3333' stroke='#003459' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>} variant="outline" />
+              </div>
+              </div>
     );
   };
   
