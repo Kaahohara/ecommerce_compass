@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const Products_model_1 = require("./Products/Products.model");
 const Products_module_1 = require("./Products/Products.module");
+const subscriptions_module_1 = require("./subscriptions/subscriptions.module");
 let ecommerceModule = class ecommerceModule {
 };
 exports.ecommerceModule = ecommerceModule;
@@ -28,6 +29,7 @@ exports.ecommerceModule = ecommerceModule = __decorate([
                 autoLoadModels: true,
             }),
             Products_module_1.ProductsModule,
+            subscriptions_module_1.SubscriptionsModule,
         ],
     })
 ], ecommerceModule);
